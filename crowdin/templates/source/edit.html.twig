@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+        {{ form_start(NewSource) }}
+        {{ form_row(NewSource.source) }}
+        <div style="display: none">{{ form_widget(NewSource.importfile) }}</div>
+
+        <button type="submit" class="btn">Modifier</button>
+        {{ form_end(NewSource) }}
+    <br>
+{% endblock %}

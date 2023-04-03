@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p>Source à traduire: </p>
+    <div style="border: black 1px double; width:30%"> {{ source.source }}</div>
+    <p>Langage d'origine: {{ lang }}</p>
+
+    <h2>Choisissez votre langue de traduction ainsi que la traduction de la source</h2>
+    {{ form_start(NewTrad) }}
+    {{ form_row(NewTrad.lang_code) }}
+    {{ form_row(NewTrad.traduction) }}
+
+    <button type="submit" class="btn">Ajouter</button>
+    {{ form_end(NewTrad) }}
+    <br>
+{% endblock %}

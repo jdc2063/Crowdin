@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LangHasUser{% endblock %}
+
+{% block body %}
+    <h1>LangHasUser</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lang_has_user.id }}</td>
+            </tr>
+            <tr>
+                <th>Lang_code</th>
+                <td>{{ lang_has_user.langCode }}</td>
+            </tr>
+            <tr>
+                <th>User_id</th>
+                <td>{{ lang_has_user.userId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lang_has_user_index') }}">back to list</a>
+
+    <a href="{{ path('app_lang_has_user_edit', {'id': lang_has_user.id}) }}">edit</a>
+
+    {{ include('lang_has_user/_delete_form.html.twig') }}
+{% endblock %}

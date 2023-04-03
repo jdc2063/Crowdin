@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <H2>Tableau de bord</H2> <div><a href="{{ path('show_projet', {'id':projet.id}) }}">
+        <button>Revenir sur le projet</button>
+    </a></div>
+    {{ form_start(ExportForm) }}
+    {{ form_row(ExportForm.lang_code) }}
+
+    <button type="submit" class="btn">Exporter</button>
+    {{ form_end(ExportForm) }}
+    <div><span>Nom de projet: {{ projet.name }}</span></div>
+    <div>Crée le: {{ projet.creationdate|date("d/m/Y") }}</div>
+    <div>Nombre de sources: {{ nombre_source }}</div>
+    <div>Nombre de sources traduites: {{ nombre_traduit }}</div>
+    <br>
+    {{ render_chart(chart, {'class': 'my-chart'}) }}
+{% endblock %}

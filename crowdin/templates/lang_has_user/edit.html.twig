@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LangHasUser{% endblock %}
+
+{% block body %}
+    <h1>Edit LangHasUser</h1>
+
+    {{ include('lang_has_user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_lang_has_user_index') }}">back to list</a><br>
+    <a href="{{ path('app_user_index') }}">back to user</a>
+
+    {{ include('lang_has_user/_delete_form.html.twig') }}
+{% endblock %}

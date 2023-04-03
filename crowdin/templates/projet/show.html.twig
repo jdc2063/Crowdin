@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <H3>Nom Projet: {{ projet.name }}</H3>
+    <h3>Langage d'origine: {{ lang.name }}</h3>
+    <h3>Gérant du Projet: {{ gerant.username }}</H3>
+    <div><a href="{{ path('show_tableau', {'id':projet.id}) }}">
+            <button>Tableau de bord</button>
+        </a></div>
+    {% if is_granted('DELETE', projet) %}
+        <div><a href="{{ path('delete_projet', {'id':projet.id}) }}">
+                <button>Supprimer le projet</button>
+            </a></div>
+        {{ form_start(NewSource) }}
+        {{ form_row(NewSource.importfile) }}
+        {{ form_row(NewSource.source) }}
+
+        <button type="submit" class="btn">Ajouter</button>
+        {{ form_end(NewSource) }}
+    {% endif %}
+    <br>
+    {% for source in sources %}
+        {% if gerant.id == user.id %}
+        {% endif %}
+    <div>
+        <div id="show_source">{{ source.source }}</div>
+        <span>
+            {% if gerant.id == user.id %}
+                <a href="{{ path('edit_source', {'id':source.id}) }}">
+                    <button>Modifier</button>
+                </a>
+                <a href="{{ path('delete_source', {'id':source.id}) }}">
+                    <button>Supprimer la source</button>
+                </a>
+                <a href="{{ path('block_source', {'id':source.id}) }}">
+                    {% if source.bloque == true %}
+                        <button>Débloquer</button>
+                    {% else %}
+                        <button>Bloquer</button>
+                    {% endif %}
+                </a>
+            {% else %}
+                {% if source.bloque == false %}
+                    <a href="{{ path('show_source', {'id':source.id}) }}">
+                        <button>Traduire</button>
+                    </a>
+                {% endif %}
+            {% endif %}
+
+        </span>
+    </div>
+        <br>
+    {% endfor %}
+{% endblock %}

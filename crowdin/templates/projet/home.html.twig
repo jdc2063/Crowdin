@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des projets{% endblock %}
+
+{% block body %}
+    
+    <i class="fa-solid fa-pen fa-2xs"></i>
+    <h1>Liste des projets</h1>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="1">Nom</th>
+            <th colspan="1">Langue</th>
+            <th colspan="1">Détail</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for projet in projets %}
+                <tr>
+                    <td>{{ projet.name }}</td>
+                    <td>{{ projet.langcode }}</td>
+                    <td>
+                        <a href="{{ path('show_projet', {'id':projet.id}) }}">
+                            <button>Traduire</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ knp_pagination_render(projets) }}
+{% endblock %}

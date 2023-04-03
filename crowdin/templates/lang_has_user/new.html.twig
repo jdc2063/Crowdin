@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LangHasUser{% endblock %}
+
+{% block body %}
+    <h1>Create new LangHasUser</h1>
+
+    {{ include('lang_has_user/_form.html.twig') }}
+
+    <a href="{{ path('app_lang_has_user_index') }}">back to list</a>
+{% endblock %}

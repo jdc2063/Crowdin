@@ -1,0 +1,16 @@
+#show_source {
+    border: black 1px double;
+    height: 5%;
+    width: 50%;
+    text-align: center
+}
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}

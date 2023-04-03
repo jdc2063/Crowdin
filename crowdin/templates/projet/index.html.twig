@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjetController!{% endblock %}
+
+{% block body %}
+    
+    {{ form_start(NewProjet) }}
+
+    <div>
+        {{ form_label(NewProjet.name) }}
+        {{ form_widget(NewProjet.name) }}
+    </div>
+    <div>
+        {{ form_label(NewProjet.lang_code) }}
+        {{ form_widget(NewProjet.lang_code) }}
+    </div>
+    <div>
+        {{ form_label(NewProjet.lang_has_projet) }}
+        {{ form_widget(NewProjet.lang_has_projet) }}
+    </div>
+    <button type="submit" class="btn">Créer</button>
+    {{ form_end(NewProjet) }}
+
+
+{% endblock %}
